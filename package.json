@@ -12,7 +12,8 @@
   "author": "Mustafa Mohamed",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.22.3"
+    "express": "^4.22.3",
+    "morgan": "^1.12.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
