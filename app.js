@@ -1,4 +1,3 @@
-const fs = require('fs');
 const express = require('express');
 const morgan = require('morgan');
 
@@ -8,9 +7,16 @@ const userRouter = require('./routes/userRoutes');
 const app = express();
 
 // 1) MIDDLEWARES
-app.use(morgan('dev'));
+console.log(process.env.NODE_ENV);
 
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+// To parse the incoming request bodies in a middleware before your handlers, you can use the express.json() middleware
 app.use(express.json());
+
+app.use(express.static(`${__dirname}/public`));
 
 //Middleware 1
 app.use((req, res, next) => {
